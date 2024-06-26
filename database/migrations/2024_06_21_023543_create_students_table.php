@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('age');
+            $table->string('image')->nullable()->after('age');
             $table->timestamps();
         });
     }
@@ -24,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 };
