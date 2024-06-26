@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6 lg:p-8">
-                <form action="{{ route('agendas.store') }}" method="POST">
+                <form action="{{ route('agenda.store') }}" method="POST">
                     @csrf
                     <div class="mb-4">
                         <label for="title" class="block text-gray-900 dark:text-white">Título</label>

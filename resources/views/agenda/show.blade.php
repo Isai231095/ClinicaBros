@@ -26,8 +26,8 @@
                 <div class="mb-4">
                     <strong class="block text-gray-900 dark:text-white">Hora de Fin:</strong> {{ $agenda->end_time }}
                 </div>
-                <a href="{{ route('agendas.edit', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
-                <form action="{{ route('agendas.destroy', $agenda->id) }}" method="POST" class="inline">
+                <a href="{{ route('agenda.edit', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
+                <form action="{{ route('agenda.destroy', $agenda->id) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="bg-pink-400 dark:bg-pink-600 hover:bg-pink-500 dark:hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>

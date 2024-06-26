@@ -19,6 +19,6 @@ Route::middleware([
 
     Route::resource('students', StudentController::class);
     Route::resource('servicios', ServiciosController::class);
-    Route::resource('agendas', AgendaController::class);
+    Route::resource('agenda', AgendaController::class);
 
 });

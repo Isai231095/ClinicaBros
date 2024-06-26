@@ -11,15 +11,15 @@ class AgendaController extends Controller
 {
     public function index()
     {
-        $agendas = Agenda::with(['student', 'servicio'])->get();
-        return view('agendas.index', compact('agendas'));
+        $agenda = Agenda::with(['student', 'servicio'])->get();
+        return view('agenda.index', compact('agenda'));
     }
 
     public function create()
     {
         $students = Student::all();
         $servicios = Servicio::all();
-        return view('agendas.create', compact('students', 'servicios'));
+        return view('agenda.create', compact('students', 'servicios'));
     }
 
     public function store(Request $request)
@@ -35,13 +35,13 @@ class AgendaController extends Controller
 
         Agenda::create($request->all());
 
-        return redirect()->route('agendas.index');
+        return redirect()->route('agenda.index');
     }
 
     public function show(string $id)
     {
         $agenda = Agenda::with(['student', 'servicio'])->findOrFail($id);
-        return view('agendas.show', compact('agenda'));
+        return view('agenda.show', compact('agenda'));
     }
 
     public function edit(string $id)
@@ -49,7 +49,7 @@ class AgendaController extends Controller
         $agenda = Agenda::findOrFail($id);
         $students = Student::all();
         $servicios = Servicio::all();
-        return view('agendas.edit', compact('agenda', 'students', 'servicios'));
+        return view('agenda.edit', compact('agenda', 'students', 'servicios'));
     }
 
     public function update(Request $request, string $id)
@@ -66,13 +66,13 @@ class AgendaController extends Controller
         $agenda = Agenda::findOrFail($id);
         $agenda->update($request->all());
 
-        return redirect()->route('agendas.index');
+        return redirect()->route('agenda.index');
     }
 
     public function destroy(string $id)
     {
         $agenda = Agenda::findOrFail($id);
         $agenda->delete();
-        return redirect()->route('agendas.index');
+        return redirect()->route('agenda.index');
     }
 }

@@ -11,7 +11,7 @@
                 <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
                     <div class="mb-4">
-                        <a href="{{ route('agendas.create') }}" class="bg-cyan-500 dark:bg-cyan-700 hover:bg-cyan-600 dark:hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">Agregar Cita</a>
+                        <a href="{{ route('agenda.create') }}" class="bg-cyan-500 dark:bg-cyan-700 hover:bg-cyan-600 dark:hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">Agregar Cita</a>
                     </div>
 
                     <table class="table-auto w-full">
@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($agendas as $agenda)
+                            @foreach($agenda as $agenda)
                             <tr>
                                 <td class="border px-4 py-2 text-gray-900 dark:text-white text-center">{{ $agenda->id }}</td>
                                 <td class="border px-4 py-2 text-gray-900 dark:text-white text-center">{{ $agenda->title }}</td>
@@ -39,9 +39,9 @@
                                 <td class="border px-4 py-2 text-gray-900 dark:text-white text-center">{{ $agenda->end_time }}</td>
                                 <td class="border px-4 py-2 text-center">
                                     <div class="flex justify-center">
-                                        <a href="{{ route('agendas.show', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Ver</a>
-                                        <a href="{{ route('agendas.edit', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
-                                        <form action="{{ route('agendas.destroy', $agenda->id) }}" method="POST" class="inline">
+                                        <a href="{{ route('agenda.show', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Ver</a>
+                                        <a href="{{ route('agenda.edit', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
+                                        <form action="{{ route('agenda.destroy', $agenda->id) }}" method="POST" class="inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="bg-pink-400 dark:bg-pink-600 hover:bg-pink-500 dark:hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
