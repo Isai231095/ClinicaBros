@@ -6,20 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up():void
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('servicio_id')->constrained()->onDelete('cascade');
+            $table->foreignId('student_id')->constrained(); // clave foránea de la tabla students
+            $table->foreignId('servicio_id')->constrained(); // clave foránea de la tabla servicios
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->timestamps();
         });
     }
-    public function down():void
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
         Schema::dropIfExists('agendas');
     }
