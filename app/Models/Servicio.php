@@ -10,4 +10,9 @@ class Servicio extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'type', 'cost'];
+
+    public function agendas()
+    {
+        return $this->hasMany(Agenda::class);
+    }
 }

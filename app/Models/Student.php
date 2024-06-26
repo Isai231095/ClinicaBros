@@ -10,4 +10,10 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'age'];
+
+    public function agendas()
+    {
+        return $this->hasMany(Agenda::class);
+    }
+
 }

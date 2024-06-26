@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,4 +19,6 @@ Route::middleware([
 
     Route::resource('students', StudentController::class);
     Route::resource('servicios', ServiciosController::class);
+    Route::resource('agendas', AgendaController::class);
+
 });
