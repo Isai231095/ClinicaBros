@@ -41,11 +41,7 @@
                                     <div class="flex justify-center">
                                         <a href="{{ route('agenda.show', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Ver</a>
                                         <a href="{{ route('agenda.edit', $agenda->id) }}" class="bg-violet-500 dark:bg-violet-700 hover:bg-violet-600 dark:hover:bg-violet-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
-                                        <form action="{{ route('agenda.destroy', $agenda->id) }}" method="POST" class="inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="bg-pink-400 dark:bg-pink-600 hover:bg-pink-500 dark:hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
-                                        </form>
+                                        <button type="button" class="bg-pink-400 dark:bg-pink-600 hover:bg-pink-500 dark:hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onclick="confirmDelete({{ $agenda->id }})">Eliminar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -58,3 +54,21 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function confirmDelete(id) {
+        alertify.confirm("¿Confirm delete record?",
+            function(){
+                let form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/agenda/' + id;
+                form.innerHTML = '@csrf @method("DELETE")';
+                document.body.appendChild(form);
+                form.submit();
+                alertify.success('Ok');
+            },
+            function(){
+                alertify.error('Cancel');
+            });
+    }
+</script>

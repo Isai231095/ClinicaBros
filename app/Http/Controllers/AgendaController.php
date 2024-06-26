@@ -69,10 +69,11 @@ class AgendaController extends Controller
         return redirect()->route('agenda.index');
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $agenda = Agenda::findOrFail($id);
         $agenda->delete();
-        return redirect()->route('agenda.index');
+
+        return redirect()->route('agenda.index')->with('success', 'Cita eliminada correctamente');
     }
 }
