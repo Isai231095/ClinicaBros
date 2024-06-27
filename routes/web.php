@@ -5,7 +5,7 @@ use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware([
@@ -20,5 +20,6 @@ Route::middleware([
     Route::resource('students', StudentController::class);
     Route::resource('servicios', ServiciosController::class);
     Route::resource('agenda', AgendaController::class);
-
 });
+
+

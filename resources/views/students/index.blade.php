@@ -17,11 +17,7 @@
                         @foreach($students as $student)
                         <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4">
                             <div class="text-center">
-                                @if($student->image)
-                                <img src="{{ asset('storage/' . $student->image) }}" alt="{{ $student->name }}" class="w-32 h-32 rounded-full mx-auto mb-4">
-                                @else
-                                    <img src="{{ asset('storage/images/default.png') }}" alt="Default Image" class="w-32 h-32 rounded-full mx-auto mb-4">
-                                @endif
+                                <img src="{{ asset('/default.png') }}" alt="Default Image" class="w-32 h-32 rounded-full mx-auto mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $student->name }}</h3>
                                 <p class="text-gray-600 dark:text-gray-400">Edad: {{ $student->age }}</p>
                             </div>
